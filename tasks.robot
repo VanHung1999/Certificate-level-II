@@ -47,10 +47,6 @@ Get order for person
         END
         ${receipt_html}=    Get Element Attribute    id:receipt    outerHTML
         Html To Pdf    ${receipt_html}    ${CURDIR}${/}output${/}pdf${/}hoa_don_thu_${thongso}[Order number].pdf
-        #${files}=    Create List        
-        #...    ${CURDIR}${/}output${/}pdf${/}hoa_don_thu_${thongso}[Order number].pdf
-        #...    ${CURDIR}${/}output${/}image${/}robot_preview_${thongso}[Order number].png
-        #Add Files To Pdf    ${files}    ${CURDIR}${/}output${/}pdf${/}hoa_don_thu_${thongso}[Order number].pdf
         Click Button    id:order-another
         Click button    OK
         
@@ -75,9 +71,6 @@ Fill and order for everyone(body)
     ELSE IF    ${body} == 6
         Click Button    id:id-body-6
     END
-*** Keywords ***
-Download the orders file
-    Download    https://robotsparebinindustries.com/orders.csv   overwrite=True
 *** Keywords ***
 Archive Folder
     Archive Folder With Zip
